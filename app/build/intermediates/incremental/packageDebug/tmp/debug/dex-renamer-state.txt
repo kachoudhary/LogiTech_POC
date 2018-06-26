@@ -1,0 +1,4 @@
+#Tue Jun 26 15:47:42 IST 2018
+base.0=C\:\\Users\\karchou\\Downloads\\New folder\\androidap\\AutoInsurance\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

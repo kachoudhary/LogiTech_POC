@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_shadow"
+    android:layout_marginBottom="-7dp"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/text_policy"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:text="Policy# PAP1234567890"
+        android:gravity="center"
+        android:background="#f4f4f6"
+        android:textColor="#4a4a4a"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="22dp">
+            <TextView
+                android:id="@+id/text_policy_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#35343d"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="06/22/2018"/>
+            <TextView
+                android:id="@+id/text_policy_start_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#9b9b9b"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginBottom="22dp"
+                android:text="Policy Start"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/text_car"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fdbd39"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Honda Brio"/>
+                <TextView
+                    android:id="@+id/text_car_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9b9b9b"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:text="Covered Car"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="22dp">
+            <TextView
+                android:id="@+id/text_policy_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#35343d"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="06/23/2018"/>
+            <TextView
+                android:id="@+id/text_policy_end_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#9b9b9b"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginBottom="22dp"
+                android:text="Policy End"/>
+            <LinearLayout
+                android:id="@+id/layout_policy_driver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/text_policy_driver"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fdbd39"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:text="Clair Goodwill"/>
+                <TextView
+                    android:id="@+id/text_policy_driver_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9b9b9b"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:text="Rated Driver"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#cacacb"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:layout_margin="22dp">
+        <TextView
+            android:id="@+id/text_policy_driver_persona_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#9b9b9b"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Driver Persona"/>
+        <TextView
+            android:id="@+id/text_policy_driver_persona"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fecb34"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textAllCaps="true"
+            android:text="MINDFUL DRIVER"/>
+    </LinearLayout>
+</LinearLayout>

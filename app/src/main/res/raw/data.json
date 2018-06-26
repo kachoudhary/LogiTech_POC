@@ -1,0 +1,25 @@
+{
+  "id": "123456",
+  "username": "Gaurav",
+
+  "policy": "PAP1234567890",
+  "policyStartDate": "2018-06-01T00:00:00.360Z",
+  "policyEndDate": "2018-06-26T00:00:00.360Z",
+  "car": "Honda Brio",
+  "drivers": [
+    {
+      "name": "Claire Goodwill",
+      "license": "23-12-5421"
+    },
+    {
+      "name": "Hunting Goodwill",
+      "license": "23-12-5421"
+    }
+  ],
+  "driverPersona": "Mindful Driver",
+  "status": "Parked",
+  "basePremium": "$32.5",
+  "usageAdjustment": 0,
+  "currentUsage": "$32.5",
+  "nextDue": "2019-01-26T07:51:33.360Z"
+}

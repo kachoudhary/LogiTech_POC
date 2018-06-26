@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#febe01</color>
+    <color name="colorPrimaryDark">#febe01</color>
+    <color name="colorAccent">#febe01</color>
+
+    <color name="dark_gray">#212121</color>
+    <color name="gray_menu_icon_active">#a6a6a6</color>
+    <color name="yellow_menu_icon_active">#876908</color>
+    <color name="yellow_menu_text_active">#ffd200</color>
+    <color name="yellow_menu_text_inactive">#a68b0d</color>
+
+
+</resources>

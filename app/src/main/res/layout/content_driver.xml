@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_shadow"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/text_driver_details_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Driver Details"
+                android:textAllCaps="true"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="12dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#35343d"/>
+            <TextView
+                android:id="@+id/text_driver_primary_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Primary Driver"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="12dp"
+                android:textColor="#9b9b9b"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/text_driver_name_label"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9b9b9b"
+                    android:text="Name"/>
+                <TextView
+                    android:id="@+id/text_driver_name"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#35343d"
+                    android:textSize="16sp"
+                    android:text="Claire Goodwill"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="22dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/text_driver_license_label"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9b9b9b"
+                    android:text="Driver License"/>
+                <TextView
+                    android:id="@+id/text_driver_license"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#35343d"
+                    android:text="01-25-123"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="-14dp"
+            android:background="@drawable/bg_shadow">
+            <TextView
+                android:id="@+id/text_driver_other_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other Named Driver"
+                android:textAllCaps="true"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="20dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#35343d"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/text_driver_other_name_label"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9b9b9b"
+                    android:text="Name"/>
+                <TextView
+                    android:id="@+id/text_driver_other_name"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#35343d"
+                    android:textSize="16sp"
+                    android:text="Claire Goodwill"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="22dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/text_driver_other_license_label"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#9b9b9b"
+                    android:text="Driver License"/>
+                <TextView
+                    android:id="@+id/text_driver_other_license"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#35343d"
+                    android:textSize="16sp"
+                    android:text="01-25-123"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
