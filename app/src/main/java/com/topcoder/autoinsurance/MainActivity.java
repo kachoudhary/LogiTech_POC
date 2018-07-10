@@ -3,8 +3,8 @@ package com.topcoder.autoinsurance;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.app.Activity;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,9 +19,7 @@ import com.topcoder.autoinsurance.utils.BottomNavigationViewHelper;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity implements
-        View.OnClickListener,
-        GetPolicyCallback {
+public class MainActivity extends Activity implements View.OnClickListener,GetPolicyCallback {
 
     private TextView textUser;
     private TextView textCarTop;
