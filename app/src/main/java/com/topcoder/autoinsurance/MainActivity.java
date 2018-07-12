@@ -1,22 +1,38 @@
 package com.topcoder.autoinsurance;
 
 import android.graphics.Typeface;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.app.Activity;
 import android.support.design.widget.BottomNavigationView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+
 import android.widget.TextView;
 
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.topcoder.autoinsurance.domain.model.Getters;
 import com.topcoder.autoinsurance.domain.model.Policy;
 import com.topcoder.autoinsurance.domain.repository.UserRepository;
 import com.topcoder.autoinsurance.domain.repository.callback.GetPolicyCallback;
 import com.topcoder.autoinsurance.domain.repository.dummyimpl.UserRepositoryImpl;
 import com.topcoder.autoinsurance.utils.BottomNavigationViewHelper;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends Activity implements View.OnClickListener,GetPolicyCallback {
@@ -38,6 +54,11 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
     private TextView textDriverOtherName;
     private TextView textDriverOtherLicense;
     private TextView textStatus;
+
+    private final static String AutoInsightPOSTurl="http://54.152.74.58:8080/user/login";
+    private final static String TestURL="http://api.openweathermap.org/data/2.5/weather?q=bengaluru&units=metric&appid=e730b8f2202b9f96e684c09f877baa38";
+    private ArrayList<Getters> autoinsightsdata=new ArrayList<>();
+    private Integer citytemperature;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -66,6 +87,8 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        Volleytest();
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -98,6 +121,146 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
 
         initFont();
     }
+
+    private void Volleytest() {
+
+        final JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, TestURL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+               Log.v("karchouresponse","RES: "+response.toString());
+
+               try {
+                   JSONObject main=response.getJSONObject("main");
+
+                   Integer temp=main.getInt("temp");
+                   Log.v("karchoutemp","Temp: "+temp);
+
+
+                   /* JSONArray list=response.getJSONArray("list");
+
+                   for (int x=0;x<5;x++) {
+                       JSONObject obj=list.getJSONObject(x);
+                       JSONObject main2=obj.getJSONObject("main");
+
+                       Double currenttemp=main2.getDouble("temp");
+
+                       }*/
+
+                       Getters getsecurity=new Getters("Bengaluru","India",temp,"Cloudy");
+                       Log.v("JSON",getsecurity.getTemperature().toString());
+                       citytemperature=getsecurity.getTemperature();
+                       autoinsightsdata.add(getsecurity);
+
+               } catch (JSONException ex) {
+                 Log.v("karchouerror","Error: "+ex.getLocalizedMessage());
+               }
+               updateUI();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("karchouerror", error.getMessage(),error);
+            }
+        });
+        Volley.newRequestQueue(this).add(jsonObjectRequest);
+    }
+
+    private void updateUI() {
+        if (autoinsightsdata.size()>0) {
+            Getters temperature=autoinsightsdata.get(0);
+            Log.d("karchouidiot","Temp is :"+temperature);
+            textPolicy.setText("Bengaluru temp is: "+citytemperature+ " C");
+        }
+    }
+
+/*    private void Postapicall() {
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST, AutoInsightPOSTurl, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("Response", response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("ERROR", "error => " + error.toString());
+            }
+        })
+
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", "Bearer 621c34fbfc14f80cf8254e3a81e6e13616f68b4849b83e1f69c741ac355b2c8f7b7ceef0ee46e0792ab450237ffe3c88");
+                headers.put("from", "AIzaSyC95iJPbZ6LhMC0FE7cQzB-O4BYjfCFJwg");
+                headers.put("client-device-id", "348705222200");
+                headers.put("User-Agent", "Mozilla/5.0 (Linux; U; Android 2.3.3; en-us; HTC_DesireS_S510e Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
+
+                return headers;
+            }
+
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json";
+            }
+
+
+            @Override
+            public byte[] getBody() throws AuthFailureError {
+              Map<String,String> bodycontent=new HashMap<String, String>();
+              bodycontent.put("email","admin@ai.com");
+              bodycontent.put("password","123");
+              return null;
+            }
+        };
+
+
+        final JsonObjectRequest postRequest2=new JsonObjectRequest(Request.Method.POST, AutoInsightPOSTurl, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.d("karchou", response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("karchouerror", error.getMessage(),error);
+            }
+        })  {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json");
+                headers.put("Authorization", "Bearer 621c34fbfc14f80cf8254e3a81e6e13616f68b4849b83e1f69c741ac355b2c8f7b7ceef0ee46e0792ab450237ffe3c88");
+                headers.put("from", "AIzaSyC95iJPbZ6LhMC0FE7cQzB-O4BYjfCFJwg");
+                headers.put("client-device-id", "348705222200");
+                headers.put("User-Agent", "Mozilla/5.0 (Linux; U; Android 2.3.3; en-us; HTC_DesireS_S510e Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1");
+
+                return headers;
+            }
+
+            @Override
+            public byte[] getBody() {
+                String str = "{\n" +
+                        "  \"email\" :\"admin@ai.com\",\n" +
+                        "  \"password\" : \"123\"\n" +
+                        "} ";
+                Log.d("karchoujson","JSON" +str.getBytes());
+                return str.getBytes();
+
+            }
+
+            @Override
+            public String getBodyContentType() {
+                return "application/json; charset=utf-8";
+            }
+        };
+        requestQueue.add(postRequest2);
+    }*/
 
     private void initFont() {
         Typeface typeSansProBold = Typeface.createFromAsset(getAssets(),"font/SourceSansPro-Bold.ttf");
@@ -185,7 +348,7 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
         textUser.setText(policy.getUsername());
         textCar.setText(policy.getCar());
         textCarTop.setText(policy.getCar());
-        textPolicy.setText("Policy# " + policy.getPolicy());
+        /*textPolicy.setText("Policy# " + policy.getPolicy()); */
         textDriver.setText(policy.getDrivers().get(0).getName());
         textMonthly.setText(policy.getBasePremium());
         textUsageAdjustment.setText(policy.getUsageAdjustment() + "%");

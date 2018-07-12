@@ -5,4 +5,7 @@
     <string name="title_trips">Trips</string>
     <string name="title_insights">Insights</string>
     <string name="title_more">More</string>
+
+    <string name="AutoInsightPOSTurl">http://54.152.74.58:8080/user/login</string>
+    <string name="TestGetURL">http://api.openweathermap.org/data/2.5/weather?q=bengaluru&amp;appid=e730b8f2202b9f96e684c09f877baa38</string>
 </resources>
