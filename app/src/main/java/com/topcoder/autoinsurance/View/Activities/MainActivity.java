@@ -1,4 +1,4 @@
-package com.topcoder.autoinsurance;
+package com.topcoder.autoinsurance.View.Activities;
 
 import android.graphics.Typeface;
 
@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.topcoder.autoinsurance.R;
 import com.topcoder.autoinsurance.domain.model.Getters;
 import com.topcoder.autoinsurance.domain.model.Policy;
 import com.topcoder.autoinsurance.domain.repository.UserRepository;

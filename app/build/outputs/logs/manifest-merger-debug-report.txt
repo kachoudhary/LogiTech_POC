@@ -88,14 +88,14 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\karchou\.gradle\cach
 		ADDED from C:\Users\karchou\AndroidStudioProjects\AutoInsurance\app\src\main\AndroidManifest.xml:8:9-35
 	android:theme
 		ADDED from C:\Users\karchou\AndroidStudioProjects\AutoInsurance\app\src\main\AndroidManifest.xml:13:9-40
-activity#com.topcoder.autoinsurance.MainActivity
+activity#com.topcoder.autoinsurance.View.Activities.MainActivity
 ADDED from C:\Users\karchou\AndroidStudioProjects\AutoInsurance\app\src\main\AndroidManifest.xml:14:9-23:20
 	android:label
 		ADDED from C:\Users\karchou\AndroidStudioProjects\AutoInsurance\app\src\main\AndroidManifest.xml:16:13-45
 	android:theme
 		ADDED from C:\Users\karchou\AndroidStudioProjects\AutoInsurance\app\src\main\AndroidManifest.xml:17:13-56
 	android:name
-		ADDED from C:\Users\karchou\AndroidStudioProjects\AutoInsurance\app\src\main\AndroidManifest.xml:15:13-41
+		ADDED from C:\Users\karchou\AndroidStudioProjects\AutoInsurance\app\src\main\AndroidManifest.xml:15:13-57
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\karchou\AndroidStudioProjects\AutoInsurance\app\src\main\AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
