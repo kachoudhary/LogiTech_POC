@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Jul 16 19:01:18 IST 2018
+#Mon Jul 16 20:49:49 IST 2018
 17.baseType=DIRECTORY
 4.path=font/SourceSansPro-ExtraLightItalic.ttf
 25.base=C\:\\Users\\karchou\\AndroidStudioProjects\\AutoInsurance\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
