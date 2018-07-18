@@ -1,11 +1,7 @@
 package com.topcoder.autoinsurance.controller;
 
-
-import com.android.volley.VolleyError;
-
-import org.json.JSONObject;
+/* Created by Kartikey Choudhary */
 
 public interface IResult {
-    public void notifySuccess(String requestType,JSONObject response);
-    public void notifyError(String requestType,VolleyError error);
+    public void OnSuccess(Integer temperature);
 }

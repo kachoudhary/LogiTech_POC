@@ -47,7 +47,6 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
     private final static String AutoInsightPOSTurl="http://54.152.74.58:8080/user/login";
     private final static String TestURL="http://api.openweathermap.org/data/2.5/weather?q=bengaluru&units=metric&appid=e730b8f2202b9f96e684c09f877baa38";
     private ArrayList<Getters> autoinsightsdata=new ArrayList<>();
-    private Integer citytemperature;
 
     IResult mResultcallback=null;
     VolleyCallback mvolleyCallback;
@@ -80,9 +79,9 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
+        initVolleyCallback();
         mvolleyCallback=new VolleyCallback(mResultcallback,this);
         mvolleyCallback.DataVolley(TestURL);
-
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -116,14 +115,23 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
         initFont();
     }
 
-    private void updateUI() {
-        if (autoinsightsdata.size()>0) {
-            Getters temperature=autoinsightsdata.get(0);
-            Log.d("karchouidiot","Temp is :"+temperature);
-            textPolicy.setText("Bengaluru temp is: "+citytemperature+ " C");
-        }
+    protected void initVolleyCallback() {
+
+        mResultcallback=new IResult() {
+            @Override
+            public void OnSuccess(Integer temperature) {
+                 Log.d("karchouidiot2","Temp is :"+temperature);
+                textPolicy.setText("Bengaluru temp is: "+temperature+ " C");
+            }
+        };
     }
 
+    private void updateUI() {
+            if (autoinsightsdata.size()>0) {
+                Getters temperature = autoinsightsdata.get(0);
+                textPolicy.setText("Bengaluru temp is: " + temperature + " C");
+            }
+    }
 
 
     private void initFont() {

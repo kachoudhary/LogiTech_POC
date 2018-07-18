@@ -51,8 +51,10 @@ public class VolleyCallback {
 
                        }*/
 
-                     Getters getsecurity=new Getters("Bengaluru","India",temp,"Cloudy");
+                     Getters getsecurity = new Getters("Bengaluru", "India", temp, "Cloudy");
+                     mresultCallback.OnSuccess(temp);
                      Log.v("JSON",getsecurity.getTemperature().toString());
+
                      //citytemperature=getsecurity.getTemperature();
                      //autoinsightsdata.add(getsecurity);
 
