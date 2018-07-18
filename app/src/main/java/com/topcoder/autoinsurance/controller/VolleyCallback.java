@@ -9,7 +9,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.topcoder.autoinsurance.domain.model.Getters;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,9 +50,7 @@ public class VolleyCallback {
 
                        }*/
 
-                     Getters getsecurity = new Getters("Bengaluru", "India", temp, "Cloudy");
-                     mresultCallback.OnSuccess(temp);
-                     Log.v("JSON",getsecurity.getTemperature().toString());
+                     mresultCallback.OnSuccess("Bengaluru",temp,"C");
 
                      //citytemperature=getsecurity.getTemperature();
                      //autoinsightsdata.add(getsecurity);

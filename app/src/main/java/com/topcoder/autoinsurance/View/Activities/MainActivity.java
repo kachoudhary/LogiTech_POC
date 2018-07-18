@@ -1,5 +1,7 @@
 package com.topcoder.autoinsurance.View.Activities;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 
 import android.os.Bundle;
@@ -14,14 +16,13 @@ import android.widget.TextView;
 import com.topcoder.autoinsurance.R;
 import com.topcoder.autoinsurance.controller.IResult;
 import com.topcoder.autoinsurance.controller.VolleyCallback;
-import com.topcoder.autoinsurance.domain.model.Getters;
+
 import com.topcoder.autoinsurance.domain.model.Policy;
 import com.topcoder.autoinsurance.domain.repository.UserRepository;
 import com.topcoder.autoinsurance.domain.repository.callback.GetPolicyCallback;
 import com.topcoder.autoinsurance.domain.repository.dummyimpl.UserRepositoryImpl;
 import com.topcoder.autoinsurance.utils.BottomNavigationViewHelper;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends Activity implements View.OnClickListener,GetPolicyCallback {
@@ -44,12 +45,11 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
     private TextView textDriverOtherLicense;
     private TextView textStatus;
 
-    private final static String AutoInsightPOSTurl="http://54.152.74.58:8080/user/login";
-    private final static String TestURL="http://api.openweathermap.org/data/2.5/weather?q=bengaluru&units=metric&appid=e730b8f2202b9f96e684c09f877baa38";
-    private ArrayList<Getters> autoinsightsdata=new ArrayList<>();
-
     IResult mResultcallback=null;
     VolleyCallback mvolleyCallback;
+
+    //private final static String AutoInsightPOSTurl="http://54.152.74.58:8080/user/login";
+    //private final static String TestURL="http://api.openweathermap.org/data/2.5/weather?q=bengaluru&units=metric&appid=e730b8f2202b9f96e684c09f877baa38";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -79,6 +79,10 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
+       final String AutoInsightPOSTurl=getString(R.string.AutoInsightPOSTurl);
+       final String TestURL=getString(R.string.TestGetURL);
+
+        
         initVolleyCallback();
         mvolleyCallback=new VolleyCallback(mResultcallback,this);
         mvolleyCallback.DataVolley(TestURL);
@@ -119,20 +123,14 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
 
         mResultcallback=new IResult() {
             @Override
-            public void OnSuccess(Integer temperature) {
-                 Log.d("karchouidiot2","Temp is :"+temperature);
-                textPolicy.setText("Bengaluru temp is: "+temperature+ " C");
+            public void OnSuccess(String cityname,Integer temperature,String Units) {
+                 Log.d("karchouidiottemperature","Temp is :"+temperature);
+
+                 if (cityname!=null && temperature!=null && Units!=null)
+                   textPolicy.setText(cityname+" is : "+temperature+ Units);
             }
         };
     }
-
-    private void updateUI() {
-            if (autoinsightsdata.size()>0) {
-                Getters temperature = autoinsightsdata.get(0);
-                textPolicy.setText("Bengaluru temp is: " + temperature + " C");
-            }
-    }
-
 
     private void initFont() {
         Typeface typeSansProBold = Typeface.createFromAsset(getAssets(),"font/SourceSansPro-Bold.ttf");
