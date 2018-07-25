@@ -10,6 +10,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -19,7 +20,6 @@ public class VolleyCallback {
 
     IResult mresultCallback=null;
     Context mcontext;
-
 
     public VolleyCallback(IResult resultCallback, Context context) {
         mresultCallback=resultCallback;
@@ -34,29 +34,32 @@ public class VolleyCallback {
              public void onResponse(JSONObject response) {
                  Log.v("karchouresponse","RES: "+response.toString());
                  try {
-                     JSONObject main=response.getJSONObject("main");
+                     //JSONObject main=response.getJSONObject("data");
 
-                     Integer temp=main.getInt("temp");
-                     Log.v("karchoutemp","Temp: "+temp);
+                     //Integer vhicleid=main.getInt("vehicleid");
+                     //Log.v("karchoutemp","Temp: "+vhicleid);
 
 
-                   /* JSONArray list=response.getJSONArray("list");
+                      JSONArray list=response.getJSONArray("data");
 
-                   for (int x=0;x<5;x++) {
-                       JSONObject obj=list.getJSONObject(x);
-                       JSONObject main2=obj.getJSONObject("main");
+                      //for (int x=0;x<5;x++) {
+                       JSONObject obj=list.getJSONObject(0);
+                       //JSONObject main2=obj.getJSONObject("vehicleid");
+                     String vhiclei= (String) obj.get("vehicleid");
+                     //  }
 
-                       Double currenttemp=main2.getDouble("temp");
 
-                       }*/
+                     String make=(String) obj.get("make");
+                     String model=(String) obj.get("model");
 
-                     mresultCallback.OnSuccess("Bengaluru",temp,"C");
 
-                     //citytemperature=getsecurity.getTemperature();
-                     //autoinsightsdata.add(getsecurity);
+                       Log.v("karchoutemp","Temp: "+vhiclei);
+                       mresultCallback.OnSuccess(vhiclei,make,model);
+
+                        //autoinsightsdata.add(getsecurity);
 
                  } catch (JSONException ex) {
-                     Log.v("karchouerror","Error: "+ex.getLocalizedMessage());
+                     Log.v("karchouexception","Error: "+ex.getLocalizedMessage());
                  }
              }
          }, new Response.ErrorListener() {

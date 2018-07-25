@@ -757,6 +757,8 @@
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="AutoInsightPOSTurl">http://54.152.74.58:8080/user/login</string>
+    <string name="RanjithMachineURL">http://L-2800322:8080/SpringBootRestApi/api/output</string>
+    <string name="RanjithMachineURLipversion">http://10.209.41.161:8080/SpringBootRestApi/api/output</string>
     <string name="TestGetURL">http://api.openweathermap.org/data/2.5/weather?q=bengaluru&amp;units=metric&amp;appid=e730b8f2202b9f96e684c09f877baa38</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>

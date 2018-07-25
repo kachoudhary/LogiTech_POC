@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.topcoder.autoinsurance.View.MainActivity">
+    tools:context="com.topcoder.autoinsurance.View.Activities.MainActivity">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <include
                 layout="@layout/content_header"
                 android:layout_width="match_parent"
@@ -45,7 +46,6 @@
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
-
 
     <TextView
         android:id="@+id/message"

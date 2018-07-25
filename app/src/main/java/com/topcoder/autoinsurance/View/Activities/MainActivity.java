@@ -1,9 +1,7 @@
 package com.topcoder.autoinsurance.View.Activities;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Typeface;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.app.Activity;
@@ -14,6 +12,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.topcoder.autoinsurance.R;
+
 import com.topcoder.autoinsurance.controller.IResult;
 import com.topcoder.autoinsurance.controller.VolleyCallback;
 
@@ -48,9 +47,6 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
     IResult mResultcallback=null;
     VolleyCallback mvolleyCallback;
 
-    //private final static String AutoInsightPOSTurl="http://54.152.74.58:8080/user/login";
-    //private final static String TestURL="http://api.openweathermap.org/data/2.5/weather?q=bengaluru&units=metric&appid=e730b8f2202b9f96e684c09f877baa38";
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -79,13 +75,12 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-       final String AutoInsightPOSTurl=getString(R.string.AutoInsightPOSTurl);
-       final String TestURL=getString(R.string.TestGetURL);
+       final String URL=getString(R.string.RanjithMachineURLipversion);
 
         
         initVolleyCallback();
         mvolleyCallback=new VolleyCallback(mResultcallback,this);
-        mvolleyCallback.DataVolley(TestURL);
+        mvolleyCallback.DataVolley(URL);
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -123,11 +118,13 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
 
         mResultcallback=new IResult() {
             @Override
-            public void OnSuccess(String cityname,Integer temperature,String Units) {
-                 Log.d("karchouidiottemperature","Temp is :"+temperature);
+            public void OnSuccess(String vehicleid,String make,String model) {
 
-                 if (cityname!=null && temperature!=null && Units!=null)
-                   textPolicy.setText(cityname+" is : "+temperature+ Units);
+                 if (vehicleid!=null && make!=null && model !=null) {
+                     // textPolicy.setText("Policy#"+vehicleid);
+                     textCar.setText(make +" "+model);
+                     textCarTop.setText(make +" "+model);
+                 }
             }
         };
     }
@@ -216,9 +213,9 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
     @Override
     public void onPolicy(Policy policy) {
         textUser.setText(policy.getUsername());
-        textCar.setText(policy.getCar());
-        textCarTop.setText(policy.getCar());
-        /*textPolicy.setText("Policy# " + policy.getPolicy()); */
+        //textCar.setText(policy.getCar());
+        //textCarTop.setText(policy.getCar());
+        textPolicy.setText("Policy# " + policy.getPolicy());
         textDriver.setText(policy.getDrivers().get(0).getName());
         textMonthly.setText(policy.getBasePremium());
         textUsageAdjustment.setText(policy.getUsageAdjustment() + "%");
