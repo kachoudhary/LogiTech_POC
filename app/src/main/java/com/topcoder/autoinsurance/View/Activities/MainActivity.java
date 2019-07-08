@@ -19,8 +19,6 @@ import com.topcoder.autoinsurance.utils.BottomNavigationViewHelper;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    private TextView textUser;
-    private TextView textCarTop;
     private TextView textPolicy;
     private TextView textPolicyStart;
     private TextView textPolicyEnd;
@@ -35,7 +33,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView textDriverLicense;
     private TextView textDriverOtherName;
     private TextView textDriverOtherLicense;
-    private TextView textStatus;
 
     IResult mResultcallback=null;
     VolleyCallback mvolleyCallback;
@@ -83,8 +80,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         View layoutPolicyDriver = findViewById(R.id.layout_policy_driver);
         layoutPolicyDriver.setOnClickListener(this);
 
-        textUser = findViewById(R.id.text_user);
-        textCarTop = findViewById(R.id.text_car_top);
         textPolicy = findViewById(R.id.text_policy);
         textPolicyStart = findViewById(R.id.text_policy_start);
         textPolicyEnd = findViewById(R.id.text_policy_end);
@@ -99,8 +94,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         textDriverLicense = findViewById(R.id.text_driver_license);
         textDriverOtherName = findViewById(R.id.text_driver_other_name);
         textDriverOtherLicense = findViewById(R.id.text_driver_other_license);
-        textStatus = findViewById(R.id.text_status);
-
         initFont();
     }
 
@@ -113,7 +106,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
                  if (Title!=null) {
                      // textPolicy.setText("Policy#"+vehicleid);
                      textCar.setText(Title);
-                     textCarTop.setText(Title);
                  }
             }
         };
@@ -123,9 +115,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Typeface typeSansProBold = Typeface.createFromAsset(getAssets(),"font/SourceSansPro-Bold.ttf");
         Typeface typeSansProMedium = Typeface.createFromAsset(getAssets(),"font/SourceSansPro-SemiBold.ttf");
         Typeface typeSansProBook = Typeface.createFromAsset(getAssets(),"font/SourceSansPro-Regular.ttf");
-
-        textUser.setTypeface(typeSansProBold);
-        textCarTop.setTypeface(typeSansProBold);
         textPolicy.setTypeface(typeSansProBold);
 
         textPolicyStart.setTypeface(typeSansProMedium);
@@ -143,8 +132,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         textUsageAdjustment.setTypeface(typeSansProBook);
         textCurrentUsage.setTypeface(typeSansProBook);
         textNextDue.setTypeface(typeSansProBook);
-        textStatus.setTypeface(typeSansProBook);
-
         TextView textPolicyStartLabel = findViewById(R.id.text_policy_start_label);
         TextView textPolicyEndLabel = findViewById(R.id.text_policy_end_label);
         TextView textCarLabel = findViewById(R.id.text_car_label);
