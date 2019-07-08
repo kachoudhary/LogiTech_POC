@@ -75,7 +75,7 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-       final String URL=getString(R.string.RanjithMachineURLipversion);
+       final String URL=getString(R.string.LogiTechURL);
 
         
         initVolleyCallback();
@@ -118,12 +118,12 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
 
         mResultcallback=new IResult() {
             @Override
-            public void OnSuccess(String vehicleid,String make,String model) {
+            public void OnSuccess(String Title) {
 
-                 if (vehicleid!=null && make!=null && model !=null) {
+                 if (Title!=null) {
                      // textPolicy.setText("Policy#"+vehicleid);
-                     textCar.setText(make +" "+model);
-                     textCarTop.setText(make +" "+model);
+                     textCar.setText(Title);
+                     textCarTop.setText(Title);
                  }
             }
         };

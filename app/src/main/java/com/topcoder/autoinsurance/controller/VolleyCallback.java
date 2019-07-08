@@ -40,22 +40,17 @@ public class VolleyCallback {
                      //Log.v("karchoutemp","Temp: "+vhicleid);
 
 
-                      JSONArray list=response.getJSONArray("data");
+                      JSONArray list=response.getJSONArray("movies");
 
                       //for (int x=0;x<5;x++) {
                        JSONObject obj=list.getJSONObject(0);
                        //JSONObject main2=obj.getJSONObject("vehicleid");
-                     String vhiclei= (String) obj.get("vehicleid");
+                     String Title= (String) obj.get("Title");
                      //  }
 
-
-                     String make=(String) obj.get("make");
-                     String model=(String) obj.get("model");
-
-
-                       Log.v("karchoutemp","Temp: "+vhiclei);
-                       mresultCallback.OnSuccess(vhiclei,make,model);
-
+                       Log.v("karchoutemp","Temp: "+Title);
+                     //  mresultCallback.OnSuccess(vhiclei,make,model);
+                     mresultCallback.OnSuccess(Title);
                         //autoinsightsdata.add(getsecurity);
 
                  } catch (JSONException ex) {
