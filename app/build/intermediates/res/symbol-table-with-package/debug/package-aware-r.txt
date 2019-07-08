@@ -1126,7 +1126,6 @@ layout tooltip
 menu navigation
 mipmap ic_launcher
 mipmap ic_launcher_round
-raw data
 string LogiTechURL
 string abc_action_bar_home_description
 string abc_action_bar_home_description_format

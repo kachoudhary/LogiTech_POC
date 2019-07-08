@@ -12,19 +12,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.topcoder.autoinsurance.R;
-
 import com.topcoder.autoinsurance.controller.IResult;
 import com.topcoder.autoinsurance.controller.VolleyCallback;
-
-import com.topcoder.autoinsurance.domain.model.Policy;
-import com.topcoder.autoinsurance.domain.repository.UserRepository;
-import com.topcoder.autoinsurance.domain.repository.callback.GetPolicyCallback;
-import com.topcoder.autoinsurance.domain.repository.dummyimpl.UserRepositoryImpl;
 import com.topcoder.autoinsurance.utils.BottomNavigationViewHelper;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 
-public class MainActivity extends Activity implements View.OnClickListener,GetPolicyCallback {
+
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private TextView textUser;
     private TextView textCarTop;
@@ -89,9 +82,6 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
 
         View layoutPolicyDriver = findViewById(R.id.layout_policy_driver);
         layoutPolicyDriver.setOnClickListener(this);
-
-        UserRepository repository = new UserRepositoryImpl(this);
-        repository.getPolicy(this);
 
         textUser = findViewById(R.id.text_user);
         textCarTop = findViewById(R.id.text_car_top);
@@ -208,28 +198,5 @@ public class MainActivity extends Activity implements View.OnClickListener,GetPo
             }
             break;
         }
-    }
-
-    @Override
-    public void onPolicy(Policy policy) {
-        textUser.setText(policy.getUsername());
-        //textCar.setText(policy.getCar());
-        //textCarTop.setText(policy.getCar());
-        textPolicy.setText("Policy# " + policy.getPolicy());
-        textDriver.setText(policy.getDrivers().get(0).getName());
-        textMonthly.setText(policy.getBasePremium());
-        textUsageAdjustment.setText(policy.getUsageAdjustment() + "%");
-        textCurrentUsage.setText(policy.getCurrentUsage());
-        textDriverPersona.setText(policy.getDriverPersona());
-        textDriverName.setText(policy.getDrivers().get(0).getName());
-        textDriverLicense.setText(policy.getDrivers().get(0).getLicense());
-        textDriverOtherName.setText(policy.getDrivers().get(1).getName());
-        textDriverOtherLicense.setText(policy.getDrivers().get(1).getLicense());
-        textStatus.setText(policy.getStatus());
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
-        textPolicyStart.setText(dateFormat.format(policy.getPolicyStartDate()));
-        textPolicyEnd.setText(dateFormat.format(policy.getPolicyEndDate()));
-        textNextDue.setText(dateFormat.format(policy.getNextDue()));
     }
 }
