@@ -19,12 +19,6 @@
             android:orientation="vertical">
 
             <include
-                layout="@layout/content_header"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="18dp" />
-            <include
                 android:id="@+id/layout_driver"
                 android:visibility="gone"
                 layout="@layout/content_driver"
