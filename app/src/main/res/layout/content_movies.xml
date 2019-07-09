@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -14,6 +14,7 @@
         android:orientation="horizontal">
 
         <FrameLayout
+            android:id="@+id/recyclerViewmain2"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginEnd="-7dp"
@@ -21,7 +22,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_shadow">
             <TextView
-                android:id="@+id/text_stats_monthly_label"
+                android:id="@+id/movie_title2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Monthly Base Premium"
@@ -31,8 +32,8 @@
                 android:textStyle="bold"
                 android:textSize="11sp"
                 android:textColor="#35343d"/>
-            <TextView
-                android:id="@+id/text_stats_monthly"
+            <ImageView
+                android:id="@+id/movie_image2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$32.5"
@@ -41,8 +42,9 @@
                 android:layout_marginLeft="12dp"
                 android:textSize="26sp"
                 android:textColor="#35343d"/>
-
         </FrameLayout>
+
+
         <FrameLayout
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -75,72 +77,4 @@
         </FrameLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginEnd="-7dp"
-            android:layout_marginTop="-7dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_shadow">
-            <TextView
-                android:id="@+id/text_current_usage_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Current Usage Based Premium"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="26dp"
-                android:layout_marginLeft="12dp"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:textColor="#35343d"/>
-            <TextView
-                android:id="@+id/text_current_usage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$32.5"
-                android:layout_marginBottom="26dp"
-                android:layout_marginTop="44dp"
-                android:layout_marginLeft="12dp"
-                android:textSize="26sp"
-                android:textColor="#7ed321"/>
-
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginStart="-7dp"
-            android:layout_marginTop="-7dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_shadow">
-            <TextView
-                android:id="@+id/text_next_due_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Next Premium Revision Due"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="26dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:textColor="#35343d"/>
-            <TextView
-                android:id="@+id/text_next_due"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="06/22/2019"
-                android:layout_marginBottom="26dp"
-                android:layout_marginTop="44dp"
-                android:layout_marginLeft="12dp"
-                android:textSize="26sp"
-                android:textColor="#35343d"/>
-
-        </FrameLayout>
-    </LinearLayout>
-
-</LinearLayout>
+</android.support.v4.widget.NestedScrollView>

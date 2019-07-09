@@ -1,14 +1,19 @@
 package com.topcoder.autoinsurance.View.Activities;
 
+import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.topcoder.autoinsurance.R;
 import com.topcoder.autoinsurance.controller.IResult;
 import com.topcoder.autoinsurance.controller.VolleyCallback;
+import com.topcoder.autoinsurance.controller.adapter.MainrecylerAdapter;
+import com.topcoder.autoinsurance.model.MyListData;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -18,7 +23,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView textPolicyEnd;
     private TextView textCar;
     private TextView textDriver;
-    private TextView textMonthly;
     private TextView textUsageAdjustment;
     private TextView textCurrentUsage;
     private TextView textNextDue;
@@ -27,10 +31,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView textDriverLicense;
     private TextView textDriverOtherName;
     private TextView textDriverOtherLicense;
-
+    private RecyclerView recyclerView;
     private IResult mResultcallback=null;
     private VolleyCallback mvolleyCallback;
-
+    private Context context;
+    private String movieTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,13 +53,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         View layoutPolicyDriver = findViewById(R.id.layout_policy_driver);
         layoutPolicyDriver.setOnClickListener(this);
-
+        context=getApplicationContext();
         textPolicy = findViewById(R.id.text_policy);
         textPolicyStart = findViewById(R.id.text_policy_start);
         textPolicyEnd = findViewById(R.id.text_policy_end);
         textCar = findViewById(R.id.text_car);
         textDriver = findViewById(R.id.text_policy_driver);
-        textMonthly = findViewById(R.id.text_stats_monthly);
         textUsageAdjustment = findViewById(R.id.text_usage_adjustment);
         textCurrentUsage = findViewById(R.id.text_current_usage);
         textNextDue = findViewById(R.id.text_next_due);
@@ -63,7 +67,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         textDriverLicense = findViewById(R.id.text_driver_license);
         textDriverOtherName = findViewById(R.id.text_driver_other_name);
         textDriverOtherLicense = findViewById(R.id.text_driver_other_license);
+        recyclerView=findViewById(R.id.recyclerViewmain);
         initFont();
+        fillRecyclerView();
     }
 
 
@@ -72,11 +78,21 @@ public class MainActivity extends Activity implements View.OnClickListener {
             @Override
             public void OnSuccess(String Title) {
                  if (Title!=null) {
-                     // textPolicy.setText("Policy#"+vehicleid);
-                     textCar.setText(Title);
+                     movieTitle=Title;
                  }
             }
         };
+    }
+
+    private void fillRecyclerView() {
+
+        MyListData[] myListData = new MyListData[]{
+                new MyListData(movieTitle, 123)
+        };
+        MainrecylerAdapter adapter = new MainrecylerAdapter(myListData);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
     }
 
     private void initFont() {
@@ -96,7 +112,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         textDriverOtherName.setTypeface(typeSansProMedium);
         textDriverOtherLicense.setTypeface(typeSansProMedium);
 
-        textMonthly.setTypeface(typeSansProBook);
         textUsageAdjustment.setTypeface(typeSansProBook);
         textCurrentUsage.setTypeface(typeSansProBook);
         textNextDue.setTypeface(typeSansProBook);
@@ -128,12 +143,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
         textDriverOtherLicenseLabel.setTypeface(typeSansProMedium);
         textDriverOtherLabel.setTypeface(typeSansProMedium);
 
-        TextView textMonthlyLabel = findViewById(R.id.text_stats_monthly_label);
         TextView textUsageAdjustmentLabel = findViewById(R.id.text_usage_adjustment_label);
         TextView textCurrentUsageLabel = findViewById(R.id.text_current_usage_label);
         TextView textNextDueLabel = findViewById(R.id.text_next_due_label);
 
-        textMonthlyLabel.setTypeface(typeSansProBold);
         textUsageAdjustmentLabel.setTypeface(typeSansProBold);
         textCurrentUsageLabel.setTypeface(typeSansProBold);
         textNextDueLabel.setTypeface(typeSansProBold);

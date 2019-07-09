@@ -13,36 +13,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <FrameLayout
+        <android.support.v7.widget.RecyclerView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/recyclerViewmain"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_marginEnd="-7dp"
             android:layout_marginBottom="-7dp"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_shadow">
-            <TextView
-                android:id="@+id/text_stats_monthly_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Monthly Base Premium"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="26dp"
-                android:layout_marginLeft="12dp"
-                android:textStyle="bold"
-                android:textSize="11sp"
-                android:textColor="#35343d"/>
-            <TextView
-                android:id="@+id/text_stats_monthly"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$32.5"
-                android:layout_marginBottom="26dp"
-                android:layout_marginTop="44dp"
-                android:layout_marginLeft="12dp"
-                android:textSize="26sp"
-                android:textColor="#35343d"/>
-
-        </FrameLayout>
+        </android.support.v7.widget.RecyclerView>
         <FrameLayout
             android:layout_width="0dp"
             android:layout_weight="1"

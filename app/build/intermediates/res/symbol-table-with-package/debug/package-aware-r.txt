@@ -915,6 +915,10 @@ id media_actions
 id message
 id middle
 id mini
+id movie_image
+id movie_image2
+id movie_title
+id movie_title2
 id multiply
 id navigation_header_container
 id never
@@ -932,6 +936,8 @@ id pin
 id progress_circular
 id progress_horizontal
 id radio
+id recyclerViewmain
+id recyclerViewmain2
 id right
 id right_icon
 id right_side
@@ -1006,8 +1012,6 @@ id text_policy_end
 id text_policy_end_label
 id text_policy_start
 id text_policy_start_label
-id text_stats_monthly
-id text_stats_monthly_label
 id text_usage_adjustment
 id text_usage_adjustment_label
 id textinput_counter
@@ -1088,6 +1092,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout list_item
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
