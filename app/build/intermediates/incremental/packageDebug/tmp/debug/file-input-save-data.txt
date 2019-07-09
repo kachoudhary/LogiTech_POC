@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Jul 09 14:46:15 IST 2019
+#Tue Jul 09 15:23:03 IST 2019
 17.baseType=DIRECTORY
 4.path=font/SourceSansPro-ExtraLightItalic.ttf
 25.base=C\:\\Users\\Kartikey Choudhary\\StudioProjects\\AutoInsurance\\app\\build\\intermediates\\merged_assets\\debug\\out

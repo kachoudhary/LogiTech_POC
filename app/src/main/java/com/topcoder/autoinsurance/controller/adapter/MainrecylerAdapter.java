@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.topcoder.autoinsurance.R;
-import com.topcoder.autoinsurance.model.MyListData;
+import com.topcoder.autoinsurance.model.POJO.MyListData;
 
 public class MainrecylerAdapter extends RecyclerView.Adapter<MainrecylerAdapter.ViewHolder> {
 
@@ -29,7 +29,7 @@ public class MainrecylerAdapter extends RecyclerView.Adapter<MainrecylerAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
      final MyListData myListData=listData[position];
      holder.textView.setText(listData[position].getMovieTitle());
-     holder.imageView.setImageResource(listData[position].getImgURL());
+     holder.imageView.setImageResource(R.drawable.bg_shadow);
     }
 
     @Override

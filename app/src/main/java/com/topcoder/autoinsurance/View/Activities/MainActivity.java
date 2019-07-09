@@ -13,7 +13,9 @@ import com.topcoder.autoinsurance.R;
 import com.topcoder.autoinsurance.controller.IResult;
 import com.topcoder.autoinsurance.controller.VolleyCallback;
 import com.topcoder.autoinsurance.controller.adapter.MainrecylerAdapter;
-import com.topcoder.autoinsurance.model.MyListData;
+import com.topcoder.autoinsurance.model.POJO.MyListData;
+
+import java.net.URL;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -36,6 +38,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private VolleyCallback mvolleyCallback;
     private Context context;
     private String movieTitle;
+    private URL imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +79,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void initVolleyCallback() {
         mResultcallback=new IResult() {
             @Override
-            public void OnSuccess(String Title) {
+            public void OnSuccess(String Title, URL imageURL) {
                  if (Title!=null) {
                      movieTitle=Title;
+                     imageView=imageURL;
                  }
             }
         };
@@ -87,7 +91,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void fillRecyclerView() {
 
         MyListData[] myListData = new MyListData[]{
-                new MyListData(movieTitle, 123)
+                new MyListData(movieTitle, imageView)
         };
         MainrecylerAdapter adapter = new MainrecylerAdapter(myListData);
         recyclerView.setHasFixedSize(true);
