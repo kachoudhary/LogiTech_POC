@@ -14,7 +14,6 @@ import android.widget.TextView;
 import com.topcoder.autoinsurance.R;
 import com.topcoder.autoinsurance.controller.IResult;
 import com.topcoder.autoinsurance.controller.VolleyCallback;
-import com.topcoder.autoinsurance.utils.BottomNavigationViewHelper;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -34,28 +33,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private TextView textDriverOtherName;
     private TextView textDriverOtherLicense;
 
-    IResult mResultcallback=null;
-    VolleyCallback mvolleyCallback;
+    private IResult mResultcallback=null;
+    private VolleyCallback mvolleyCallback;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home: {
-                    View layoutDriver = findViewById(R.id.layout_driver);
-                    View layoutPolicy = findViewById(R.id.layout_policy);
-                    View layoutStats = findViewById(R.id.layout_stats);
-                    layoutDriver.setVisibility(View.GONE);
-                    layoutPolicy.setVisibility(View.VISIBLE);
-                    layoutStats.setVisibility(View.VISIBLE);
-                }
-                break;
-            }
-            return true;
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +51,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         initVolleyCallback();
         mvolleyCallback=new VolleyCallback(mResultcallback,this);
         mvolleyCallback.DataVolley(URL);
-
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        BottomNavigationViewHelper.removeShiftMode(navigation);
 
         View layoutPolicyDriver = findViewById(R.id.layout_policy_driver);
         layoutPolicyDriver.setOnClickListener(this);
@@ -98,11 +73,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     protected void initVolleyCallback() {
-
         mResultcallback=new IResult() {
             @Override
             public void OnSuccess(String Title) {
-
                  if (Title!=null) {
                      // textPolicy.setText("Policy#"+vehicleid);
                      textCar.setText(Title);
