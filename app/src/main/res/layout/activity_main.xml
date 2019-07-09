@@ -25,21 +25,23 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"/>
             <include
+                android:visibility="gone"
                 android:id="@+id/layout_policy"
                 layout="@layout/content_policy"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-            <include
+             <include
                 android:id="@+id/layout_stats"
                 layout="@layout/content_stats"
                 android:layout_marginTop="-14dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-            <FrameLayout
+            <fragment
                 android:id="@+id/fragment_cards"
+                android:name="com.topcoder.autoinsurance.View.Fragments.MainFragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </FrameLayout>
+            </fragment>
 
         </LinearLayout>
 

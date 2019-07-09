@@ -1,8 +1,5 @@
 package com.topcoder.autoinsurance.View.Activities;
 
-
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
@@ -10,7 +7,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import com.topcoder.autoinsurance.R;
-import com.topcoder.autoinsurance.View.Fragments.MainFragment;
 import com.topcoder.autoinsurance.controller.IResult;
 import com.topcoder.autoinsurance.controller.VolleyCallback;
 
@@ -46,7 +42,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
        final String URL=getString(R.string.LogiTechURL);
 
-        initFragments();
         initVolleyCallback();
         mvolleyCallback=new VolleyCallback(mResultcallback,this);
         mvolleyCallback.DataVolley(URL);
@@ -71,14 +66,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         initFont();
     }
 
-    private void initFragments() {
-        FragmentManager fm=getFragmentManager();
-        FragmentTransaction fragmentTransaction=fm.beginTransaction();
-        fragmentTransaction.add(R.id.fragment_cards, MainFragment.newInstance());
-        fragmentTransaction.addToBackStack(MainFragment.newInstance().toString());
-        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        fragmentTransaction.commit();
-    }
 
     protected void initVolleyCallback() {
         mResultcallback=new IResult() {
